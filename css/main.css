@@ -1,0 +1,185 @@
+html {
+    position: relative;
+    min-height: 100%;
+    font-family: 'raleway', sans-serif;
+    /*background: #1C7C54;*/
+    background: #264027;
+    font-size: 1rem;
+}
+body {
+    margin: 0 0 50px; /* bottom = footer height */
+}
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    /*background: #2DD881;*/
+    text-align: center;
+    color: #ffffff;
+}
+.container-full {
+    width: 100%;
+}
+.container {
+    width: 840px;
+    display: block;
+    margin:  auto;
+    /*padding: 10px;
+    background: rgba(0,0,0,0.8);*/
+}
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+/*  GRID OF TWELVE  */
+.col12 {
+	width: 100%;
+}
+.col11 {
+  	width: 91.53%;
+}
+.col10 {
+  	width: 83.06%;
+}
+.col9 {
+  	width: 74.6%;
+}
+.col8 {
+  	width: 66.13%;
+}
+.col7 {
+  	width: 57.66%;
+}
+.col6 {
+  	width: 49.2%;
+}
+.col5 {
+  	width: 40.73%;
+}
+.col4 {
+  	width: 32.26%;
+}
+.col3 {
+  	width: 23.8%;
+}
+.col2 {
+  	width: 15.33%;
+}
+.col1 {
+  	width: 6.866%;
+}
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 840px) {
+    .container {
+        width: 94%;
+        display: block;
+    }
+	.col {  margin: 1% 0 1% 0%; }
+
+    .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12 {
+	width: 100%;
+	}
+    .via-input {
+        width: 70% !important;
+    }
+    .btn-via-delete {
+        width: 15% !important;
+    }
+    .header-logo {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+    }
+    nav {
+        display: none;
+    }
+    #nav-toggle {
+    float: right;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 2rem;
+    margin: 3% 5% 0 0;
+    display: inline !important;
+    }
+    textarea {
+        width: 200px;
+    }
+}
+label {
+    display: block;
+    color: #ffffff;
+}
+input[type="text"], select{
+    width: 100%;
+    padding: 10px 0;
+    text-indent: 5px;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+   -moz-appearance: none;
+}
+#btn-add-via {
+    background: #BADA55;
+    border: none;
+    padding: 10px 0;
+    width: 100px;
+    color: #ffffff;
+}
+.via-input {
+    width: 95% !important;
+}
+.btn-via-delete {
+    float: right;
+    /* padding: 3.5px 0; */
+    /* width: 30px;
+    height: 30px; */
+    border: none;
+    background: none;
+    /* background: #F21B3F; */
+    color: #F21B3F;
+    font-size: 3rem;
+    margin-top: -15px;
+    padding: 0;
+    cursor: pointer;
+}
+#btn-continue-1 {
+    background: #BADA55;
+    border: none;
+    padding: 10px 0;
+    width: 100px;
+    color: #ffffff;
+    float: right;
+}
+h1, h2, h3, h4, p {
+    color: #ffffff;
+}
+
+
+.ui-timepicker-container{position:absolute;overflow:hidden;box-sizing:border-box}
+.ui-timepicker,.ui-timepicker-viewport{box-sizing:content-box;height:205px;display:block;margin:0}
+.ui-timepicker{list-style:none;padding:0 1px;text-align:center}
+.ui-timepicker-viewport{padding:0;overflow:auto;overflow-x:hidden}
+.ui-timepicker-standard{font-family:Verdana,Arial,sans-serif;font-size:1.1em;background-color:#FFF;border:1px solid #AAA;color:#222;margin:0;padding:2px}
+.ui-timepicker-standard a{border:1px solid transparent;color:#222;display:block;padding:.2em .4em;text-decoration:none}
+.ui-timepicker-standard .ui-state-hover{background-color:#DADADA;border:1px solid #999;font-weight:400;color:#212121}
+.ui-timepicker-standard .ui-menu-item{margin:0;padding:0}
+.ui-timepicker-corners,.ui-timepicker-corners .ui-corner-all{-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px}
+.ui-timepicker-hidden{display:none}.ui-timepicker-no-scrollbar .ui-timepicker{border:none}/*# sourceMappingURL=jquery.timepicker.min.css.map */

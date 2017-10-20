@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Taxibooking.com</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="css/main.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="js/backstretch.js"></script>
+        <script type="text/javascript" src="js/enquire.js"></script>
+        <script type="text/javascript" src="js/knockout.js"></script>
+        <script type="text/javascript" src="js/timepicker.js"></script>
+    </head>
+    <body>
+        <header class="container-full">
+            <div class="section group">
+                <div class="col col12">
+                    <img src="img/TB-Logo-NEW-2.png" alt="HEADER-LOGO" class="header-logo">
+                </div>
+            </div>
+        </header>
+        <main class="container-full">
+            <div class="container">
+                <div class="section group">
+                    <label for="">Pickup</label>
+                    <input type="text" id="" class="" data-bind="value: booking.pickup"/>
+                </div>
+                <div class="section group">
+                    <div class="col col12">
+                        <label for="">Drop Off</label>
+                        <input type="text" id="" class="" data-bind="value: booking.destination"/>
+                    </div>
+                </div>
+                <div class="section group" id="vias" data-bind="foreach: booking.vias">
+                    <div>
+                        <label data-bind="attr: { for: 'via-' + $index() }">Via</label>
+                        <input type="text" class="via-input" data-bind="attr: { id: 'via-' + $index() }, value: address" />
+                        <button data-bind="click: $parent.removeVia" class="btn-via-delete">&times;</button>
+                    </div>
+                </div>
+                <div class="section group">
+                    <div class="col col12">
+                        <button type="button" class="" id="btn-add-via" data-bind="click: addVia">Add Via</button>
+                    </div>
+                </div>
+                <div class="section group">
+                    <div class="col col3">
+                        <label for="">Date</label>
+                        <input type="text" class="datepicker" id="date-input"/>
+                    </div>
+                    <div class="col col3">
+                        <label for="">Time</label>
+                        <input type="text" class="timepicker" id="time-input"/>
+                    </div>
+                    <div class="col col3">
+                        <label for="numberPassengers">No. Passengers</label>
+                        <select name="numberPassengers" id="noPassengers">
+                            <option value="1-passenger">1</option>
+                            <option value="2-passenger">2</option>
+                            <option value="3-passenger">3</option>
+                            <option value="4-passenger">4</option>
+                            <option value="5-passenger">5</option>
+                            <option value="6-passenger">6</option>
+                        </select>
+                    </div>
+                    <div class="col col3">
+                        <label for="vehicle-select">Vehicle Type</label>
+                        <select name="" id="">
+                            <option value="">Saloon Car (4 Passengers)</option>
+                            <option value="">Hackney (5 Passengers)</option>
+                            <option value="">MPV (6 Passengers)</option>
+                            <option value="">Executive (3 Passengers)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="section group">
+                    <div class="col col12">
+                        <button type="button" class="" id="btn-continue-1">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="container-full">
+            <div class="section group">
+                <p>&copy;<span id="year"></span> Transdev Digital</p>
+            </div>
+        </footer>
+
+       <script type="text/javascript" src="models/booking.js"></script>
+       <script type="text/javascript" src="models/via.js"></script>
+       <script type="text/javascript" src="view-models/booking-view-model.js"></script>
+       <script type="text/javascript">
+            // Get the current year and put it in a variable
+            var year = new Date().getFullYear().toString();
+            // Write the date into element with ID "year"
+            document.getElementById("year").innerHTML = year;
+        </script>
+        <script type="text/javascript">
+            $('.timepicker').timepicker({
+                timeFormat: 'h:mm p',
+                interval: 10,
+                minTime: '10',
+                maxTime: '6:00pm',
+                defaultTime: '12',
+                startTime: '10:00',
+                dynamic: true,
+                dropdown: true,
+                scrollbar: false
+            });
+        </script>
+        <script type="text/javascript">
+            $( function() {
+                $( ".datepicker" ).datepicker();
+            } );
+        </script>
+        <script type="text/javascript">
+          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            document.getElementById("date-input").type = "date";
+            document.getElementById("time-input").type = "time";
+          }
+        </script>
+        <script type="text/javascript">
+            enquire.register('screen and (min-width: 840px)', {
+            match: function() {
+                $.backstretch([
+                "img/bg-1.jpg",
+                "img/bg-2.jpg",
+                "img/bg-3.jpg",
+                "img/bg-4.jpg",
+                "img/bg-5.jpg",
+                "img/bg-6.jpg",
+                "img/bg-7.jpg",
+                "img/bg-8.jpg",
+                "img/bg-9.jpg",
+                "img/bg-10.jpg",
+                "img/bg-11.jpg"
+                ], {duration: 5000, fade: 1500});
+            },
+            unmatch: function() {
+                $.backstretch('destroy');
+            }
+        });
+
+        var bookingViewModel = new BookingViewModel();
+        ko.applyBindings(bookingViewModel);
+    </script>
+    </body>
+</html>
